@@ -15,10 +15,9 @@ ReactDOM.render(
   <BrowserRouter>
     <div>
     <Switch>
-          <Route path="/post/new" component={PostNew}/>
+        <Route path="/post/new" component={PostNew}/>
         <Route  path="/" component={IndexPost}/>
-
-        </Switch>
+    </Switch>
     </div>
   </BrowserRouter>
   </Provider>
