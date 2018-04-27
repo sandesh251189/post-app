@@ -10,6 +10,8 @@ import PostNew from './components/post_new'
 import ReduxPromise from 'redux-promise'
 const createStoreWithMiddleware = applyMiddleware(ReduxPromise)(createStore);
 
+
+console.log(React.version);
 ReactDOM.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
   <BrowserRouter>
