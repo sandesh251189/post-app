@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import {Field , reduxForm} from 'redux-form';
+import {Link} from 'react-router-dom';
 class PostNew extends Component{
 renderField(field){
   return(
@@ -14,6 +15,9 @@ renderField(field){
 }
 onSubmit(values){
   console.log(values)
+}
+handleCancel(){
+
 }
     render(){
       const {handleSubmit} = this.props
@@ -38,6 +42,8 @@ onSubmit(values){
                 component={this.renderField}
                  />
                  <button className="btn btn-primary" type="submit">Submit</button>
+                   <Link className="btn btn-danger" to="/">Cancel</Link>
+
           </form>
       </div>
       )
