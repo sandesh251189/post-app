@@ -1,6 +1,9 @@
 import React,{Component} from 'react';
 import {Field , reduxForm} from 'redux-form';
+import {connect} from 'react-redux';
+import {createPost} from '../actions'
 import {Link} from 'react-router-dom';
+import IndexPost from './index_post';
 class PostNew extends Component{
 renderField(field){
   return(
@@ -9,12 +12,19 @@ renderField(field){
     <input className="form-control" type='text'
       {...field.input}
       />
-      {field.meta.error}
+      {field.meta.touched ? field.meta.error:''}
     </div>
   )
 }
 onSubmit(values){
-  console.log(values)
+
+  this.props.createPost(values,()=>{
+
+        console.log("Did Mount")
+  
+
+  });
+//  console.log(values);
 }
 handleCancel(){
 
@@ -45,6 +55,7 @@ handleCancel(){
                    <Link className="btn btn-danger" to="/">Cancel</Link>
 
           </form>
+
       </div>
       )
     }
@@ -66,4 +77,6 @@ if(!values.content) {
 export default reduxForm({
   validate,
   form:'PostNewForm'
-})(PostNew);
+})(
+  connect(null,{createPost})(PostNew)
+);
